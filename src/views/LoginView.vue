@@ -1,8 +1,14 @@
 <template>
   <div class="flex">
-    <div class="md:flex-1/2 hidden bg-blue-500"></div>
+    <div class="md:flex-1/2 flex-0 flex bg-blue-500 justify-center items-center">
+        <img :src="loginImage" alt="Logo" class="max-h-[90vh] w-full" />
+    </div>
     <div class="md:flex-1/2 flex-1 flex items-center justify-center min-h-screen bg-gray-100 p-3">
     <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6">
+      <div class="flex justify-center mb-10">
+        <img :src="login" alt="Logo" class="h-[80%] w-[80%]" />
+      </div>
+      <div>
       <!-- Step 1: Input Email/Phone -->
       <div v-if="step === 'input'">
         <h2 class="text-2xl font-bold mb-4">Welcome back</h2>
@@ -62,6 +68,7 @@
         </button>
       </div>
     </div>
+    </div>
   </div>
   </div>
 </template>
@@ -70,6 +77,8 @@
 import { ref } from "vue";
 import { useAuthStore } from "../stores/authStore";
 import { useRouter } from "vue-router";
+import loginImage from '@/assets/loginImage.png';
+import login from '@/assets/login.jpg';
 
 const phone = ref("");
 const rememberMe = ref(false);
