@@ -10,17 +10,9 @@ export async function requestOtp(phone) {
       body: JSON.stringify({ phone_number: phone }),
     });
 
-    const data = await res.json();
-
-    if (res.ok) {
-      toast.showToast(data.message,'success');
-    } else {
-      toast.showToast(data.message || "Failed to send OTP" , 'error');
-    }
-
-    return data;
+    return await res.json();
   } catch (error) {
-    toast.showToast("Something went wrong!" , 'error');
+     toast.showToast("Something went wrong!" , 'error');
     throw error;
   }
 }
@@ -33,17 +25,9 @@ export async function verifyOtp(phone, otp) {
       body: JSON.stringify({ phone_number: phone, otp: otp }),
     });
 
-    const data = await res.json();
-
-    if (res.ok) {
-       toast.showToast(data.message,'success');
-    } else {
-     toast.showToast(data.message || "Failed to Verify OTP" , 'error');
-    }
-
-    return data;
+    return await res.json();
   } catch (error) {
-    toast.showToast("Something went wrong!" , 'error');
+     toast.showToast("Something went wrong!" , 'error');
     throw error;
   }
 }
